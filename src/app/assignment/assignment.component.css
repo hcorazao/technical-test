@@ -1,0 +1,10 @@
+.custombg-nxtbtn {
+    background: #007bff;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.mat-card h2 {
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+}

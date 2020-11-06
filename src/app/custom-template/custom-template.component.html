@@ -1,0 +1,125 @@
+<!-- DROPDOWN -->
+<ng-container *ngIf="field?.type == 'DROPDOWN'">
+  <mat-form-field
+    [id]="field?.id"
+    [class]="field?.metadata?.class"
+    [ngStyle]="field?.meta_data?.style"
+    [name]="'dropdown_' + field?.id"
+  >
+    <mat-label>{{ field?.label }}</mat-label>
+    <mat-select
+      [name]="'field_' + field?.id"
+      [(ngModel)]="field.value"
+      (ngModelChange)="onChange($event, 'DROPDOWN')"
+      [required]="field?.is_required"
+    >
+      <mat-option
+        *ngFor="let option of field?.datasource?.options"
+        [id]="option?.id"
+        [value]="option.id"
+        >{{ option.label }}</mat-option
+      >
+    </mat-select>
+
+  </mat-form-field>
+</ng-container>
+
+<!-- DATE -->
+<ng-container *ngIf="field?.type == 'DATE'">
+  <mat-form-field
+    [id]="field?.id"
+    [class]="field?.metadata?.class"
+    [ngStyle]="field?.meta_data?.style"
+  >
+    <mat-label>{{ field?.label }}</mat-label>
+    <input
+      matInput
+      [name]="'field_' + field?.id"
+      [(ngModel)]="field.value"
+      (ngModelChange)="onChange(field.value, 'DATE')"
+      [matDatepicker]="picker"
+      (click)="picker.open()"
+      [placeholder]="field?.placeholder"
+      [required]="field?.is_required"
+    />
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</ng-container>
+
+<!-- TEXT -->
+<ng-container *ngIf="field?.type == 'TEXT'">
+  <mat-form-field
+    [id]="field?.id"
+    [class]="field?.metadata?.class"
+    [ngStyle]="field?.meta_data?.style"
+  >
+    <mat-label>{{ field?.label }}</mat-label>
+    <input
+      matInput
+      type="text"
+      [name]="'field_' + field?.id"
+      [(ngModel)]="field.value"
+      (ngModelChange)="onChange(field.value, 'TEXT')"
+      [required]="field?.is_required"
+      [placeholder]="field?.placeholder"
+      [minlength]="field?.meta_data?.min_length"
+      [maxlength]="field?.meta_data?.max_length"
+    />
+  </mat-form-field>
+</ng-container>
+
+<!-- PASSWORD -->
+<ng-container *ngIf="field?.type == 'PASSWORD'">
+  <mat-form-field
+    [id]="field?.id"
+    [class]="field?.metadata?.class"
+    [ngStyle]="field?.meta_data?.style"
+  >
+    <mat-label>{{ field?.label }}</mat-label>
+    <input
+      matInput
+      type="password"
+      [name]="'field_' + field?.id"
+      [(ngModel)]="field.value"
+      (ngModelChange)="onChange(field.value, 'PASSWORD')"
+      [required]="field?.is_required"
+      [placeholder]="field?.placeholder"
+      [minlength]="field?.meta_data?.min_length"
+      [maxlength]="field?.meta_data?.max_length"
+    />
+  </mat-form-field>
+</ng-container>
+
+<!-- CHECKBOX -->
+<ng-container *ngIf="field?.type == 'CHECKBOX'">
+  <mat-checkbox
+    [name]="'field_' + field?.id"
+    [(ngModel)]="field.value"
+    (ngModelChange)="onChange(field.value, 'CHECKBOX')"
+    [required]="field?.is_required"
+    [placeholder]="field?.placeholder"
+    [class]="field?.metadata?.class"
+    [ngStyle]="field?.meta_data?.style"
+    >{{ field?.label }}</mat-checkbox
+  >
+</ng-container>
+
+<!-- RADIO -->
+<ng-container *ngIf="field?.type == 'RADIO'">
+  <mat-radio-group
+    [required]="field?.is_required"
+    [placeholder]="field?.placeholder"
+    [id]="field?.id"
+    [class]="field?.metadata?.class"
+    [ngStyle]="field?.meta_data?.style"
+    [name]="'field_' + field?.id"
+    [(ngModel)]="field.value"
+    (ngModelChange)="onChange(field.value, 'TADIO')"
+  >
+    <mat-radio-button
+      *ngFor="let option of field?.datasource?.options"
+      [value]="option?.id"
+      >{{ option.label }}</mat-radio-button
+    >
+  </mat-radio-group>
+</ng-container>

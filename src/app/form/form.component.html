@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row mt-5 custom-textarea-box">
+        <div class="col-12">
+
+            <form [formGroup]="assignmentForm" (ngSubmit)="onSubmit()" autocomplete="off" novalidate>
+                <h2>Create Quick Assignment</h2>
+
+                <!-- INPUT -->
+                <div class="row">
+                    <mat-form-field class="col-md-12 form-group mb-0">
+                        <!-- <textarea matInput formControlName="form" id="form" placeholder="Form" type="text"></textarea> -->
+                        <textarea 
+                            matInput 
+                            formControlName="form"
+                            cdkTextareaAutosize 
+                            #autosize="cdkTextareaAutosize" 
+                            cdkAutosizeMinRows="5"
+                            cdkAutosizeMaxRows="25"
+                        ></textarea>
+                        <mat-error *ngIf="hasError('form','required')">*Form is required.</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <!-- SUBMIT -->
+                <div class="form-group pt-3 mb-3 pb-2 d-flex justify-content-between flex-wrap custombg-btn">
+                    <button mat-raised-button type="submit" class="btn btn-outline-primary">Submit</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

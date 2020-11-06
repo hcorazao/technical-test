@@ -1,0 +1,14 @@
+.custom-textarea-box {
+    width: 70%;
+    margin: 0 auto;
+}
+.custombg-btn button {
+    background: #007bff;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+@media screen and (max-width:767px){
+.custom-textarea-box {
+    width: 100%;
+}
+}

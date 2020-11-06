@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>DynamicForm</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+  .mat-card.mat-card {
+    box-shadow: none;
+    border: none;
+}
+.mat-form-field {
+    font-size: 14px;
+}
+.mat-step-header .mat-step-icon-state-edit {
+    background: #30D470;
+}
+.mat-step-header .mat-step-icon {
+    width: 100%;
+    display: block;
+    max-width: 20px;
+    max-height: 20px;
+}
+.mat-stepper-horizontal-line {
+    border-top-width: 3px;
+    border-color: #2FD470;
+}
+.mat-step-header .mat-step-icon {
+    background-color: none;
+    color: #fff;
+    border: 1px solid #dad7d7;
+}
+.mat-horizontal-stepper-header {
+    padding: 0;
+    flex-direction: column;
+}
+.mat-step-header .mat-step-icon-state-edit,.mat-step-header .mat-step-icon-selected {
+    background: #2FD470 !important;
+    border:none;
+}
+.mat-step-icon-content span {
+    display: none;
+}
+.mat-horizontal-stepper-header{height:auto;}
+.mat-stepper-horizontal-line {
+    border-top-width: 4px;
+    border-color: #2FD470;
+}
+.mat-horizontal-stepper-header .mat-step-icon {
+    margin-right: 0;
+    flex: none;
+    width: 14px;
+    height: 14px;
+    margin-bottom:10px;
+}
+.mat-step-icon .mat-icon{display:none;}
+
+@media screen and (max-width:767px){
+  .mat-horizontal-content-container {
+    overflow: hidden;
+    padding: 0;
+}
+}
+  </style>
+
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+</html>

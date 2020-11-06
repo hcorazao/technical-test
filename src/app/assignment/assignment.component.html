@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12">
+      <form
+        (ngSubmit)="onSubmit()"
+        autocomplete="off"
+        novalidate
+      >
+        <h2>Create Quick Assignment</h2>
+
+        <mat-horizontal-stepper #stepper>
+          <ng-container *ngFor="let template of customTemplate; let i = index">
+            <mat-step [stepControl]="firstFormGroup">
+              <!-- TOP LABLE -->
+              <ng-template matStepLabel>{{ template?.label }}</ng-template>
+
+              <!-- FORM -->
+              <ng-container *ngFor="let form of template?.field_groups">
+                <mat-card class="mt-3">
+                  <h2>{{ form?.label }}</h2>
+
+                  <!-- CUSTOM FIELDS -->
+                  <ng-container *ngFor="let field of form?.fields">
+                    <app-custom-template [field]="field"></app-custom-template>
+                  </ng-container>
+                </mat-card>
+              </ng-container>
+
+              <ng-container *ngIf="template?.field_groups?.length == 0">
+                <mat-card class="text-center">
+                  <h2>No Data</h2>
+                </mat-card>
+              </ng-container>
+
+							<!-- NEXT -->
+              <div *ngIf="i != customTemplate?.length - 1">
+                <button mat-raised-button class="btn btn-outline-primary custombg-nxtbtn mt-5" matStepperNext>Next</button>
+              </div>
+
+							<!-- SUBMIT -->
+              <div *ngIf="i == customTemplate?.length - 1">
+                <button mat-raised-button class="btn btn-outline-primary custombg-nxtbtn mt-5" type="submit">Save</button>
+							</div>
+							
+            </mat-step>
+          </ng-container>
+        </mat-horizontal-stepper>
+      </form>
+    </div>
+  </div>
+</div>
